@@ -1,0 +1,34 @@
+package com.practice.arrays;
+
+public class ValidPalindrome {
+
+
+    public static boolean isPalindrome(String s) {
+        // 1. Sirf letters aur numbers rakho, baki sab hata do (Space, Comma etc.)
+        // Aur sabko lowercase (choti ABC) kar do
+        String cleanString = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+        // 2. Do pointers banao
+        int left = 0;
+        int right = cleanString.length() - 1;
+
+        // 3. Dono taraf se check karte hue beech mein aao
+        while (left < right) {
+            if (cleanString.charAt(left) != cleanString.charAt(right)) {
+                return false; // Agar match nahi hua toh Palindrome nahi hai
+            }
+            left++;  // Aage badho
+            right--; // Peeche aao
+        }
+
+        return true; // Agar pura check ho gaya toh Palindrome hai
+    }
+
+    public static void main(String[] args) {
+        String input1 = "A man, a plan, a canal: Panama";
+        String input2 = "race a car";
+
+        System.out.println("Input 1 is Palindrome? " + isPalindrome(input1)); // True
+        System.out.println("Input 2 is Palindrome? " + isPalindrome(input2)); // False
+    }
+}
