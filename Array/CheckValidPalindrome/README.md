@@ -1,3 +1,15 @@
+Logic:
+Isme hum Two Pointers use karte hain. Ek pointer shuruat mein (L) aur ek aakhri mein (R).
+
+    Dono ko beech ki taraf lao.
+
+    Har step par check karo: L wala letter aur R wala letter same hai?
+
+    Agar same nahi hai, toh turant bolo False.
+
+    Beech mein pahunch gaye aur sab same mila, toh True.
+
+
 Is Code mein ho kya raha hai? (Step-by-Step)
 
     replaceAll("[^a-zA-Z0-9]", ""): String mein bahut saare faltu characters ho sakte hain jaise , : ya spaces. Ye line un sabko nikaal deti hai aur sirf "alphanumeric" characters rakhti hai.
