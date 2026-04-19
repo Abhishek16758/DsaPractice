@@ -1,0 +1,33 @@
+package com.practice.anagram;
+
+public class Main {
+    public static boolean isAnagram(String s, String t) {
+        // Agar length hi alag hai, toh anagram ho hi nahi sakta
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        // 26 letters ke liye counter array
+        int[] counts = new int[26];
+
+        for (int i = 0; i < t.length(); i++) {
+            // s.charAt(i) - 'a' karne se humein 0-25 ke beech ka index milta hai
+            counts[s.charAt(i) - 'a']++; // Pehli string ke liye badhao
+            counts[t.charAt(i) - 'a']--; // Doosri string ke liye ghatao
+        }
+
+        // Check karo ki kya saare counters zero hain
+        for (int count : counts) {
+            if (count != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String s = "anagram", t = "nagaram";
+        System.out.println("Are they anagrams? " + isAnagram(s, t)); // True
+    }
+}
