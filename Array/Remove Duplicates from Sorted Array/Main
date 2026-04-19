@@ -1,0 +1,30 @@
+public class Main {
+    public static int removeDuplicates(int[] nums) {
+        // Agar array khali hai
+        if (nums.length == 0) return 0;
+
+        int i = 0; // Slow pointer (Unique numbers ki seat)
+
+        for (int j = 1; j < nums.length; j++) {
+            // Agar naya unique number mila
+            if (nums[j] != nums[i]) {
+                i++;           // Agli unique seat par jao
+                nums[i] = nums[j]; // Wahan naya number baitha do
+            }
+        }
+
+        // 'i' index hai, toh length 'i + 1' hogi
+        return i + 1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 1, 2, 2, 3};
+        int length = removeDuplicates(arr);
+
+        System.out.println("New Length: " + length);
+        System.out.print("Updated Array: ");
+        for (int k = 0; k < length; k++) {
+            System.out.print(arr[k] + " ");
+        }
+    }
+}
