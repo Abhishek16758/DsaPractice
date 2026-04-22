@@ -1,0 +1,27 @@
+public class BoyerMoore {
+    public static int majorityElement(int[] nums) {
+        int candidate = 0;
+        int count = 0;
+
+        for (int num : nums) {
+            // Agar count zero hai, toh naya candidate chun lo
+            if (count == 0) {
+                candidate = num;
+            }
+
+            // Vote check karo
+            if (num == candidate) {
+                count++; // Support
+            } else {
+                count--; // Oppose
+            }
+        }
+
+        return candidate;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 2, 1, 1, 1, 2, 2};
+        System.out.println("Majority Element is: " + majorityElement(arr));
+    }
+}
