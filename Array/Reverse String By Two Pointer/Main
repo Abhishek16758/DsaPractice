@@ -1,0 +1,25 @@
+public class Main {
+    public static void reverseString(char[] s) {
+        int left = 0;
+        int right = s.length - 1;
+
+        while (left < right) {
+            // 1. Swapping ka logic (Teesre variable ki madad se)
+            char temp = s[left];
+            s[left] = s[right];
+            s[right] = temp;
+
+            // 2. Pointers ko beech ki taraf lao
+            left++;
+            right--;
+        }
+    }
+
+    public static void main(String[] args) {
+        char[] word = {'h', 'e', 'l', 'l', 'o'};
+        reverseString(word);
+        
+        System.out.print("Reversed: ");
+        System.out.println(word); // Output: olleh
+    }
+}
