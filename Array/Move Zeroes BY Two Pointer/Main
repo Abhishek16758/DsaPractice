@@ -1,0 +1,26 @@
+public class Main {
+    public static void moveZeroes(int[] nums) {
+        int lastNonZeroFoundAt = 0;
+
+        // Step 1: Saare non-zero numbers ko shuruat mein le aao
+        for (int cur = 0; cur < nums.length; cur++) {
+            if (nums[cur] != 0) {
+                nums[lastNonZeroFoundAt] = nums[cur];
+                lastNonZeroFoundAt++;
+            }
+        }
+
+        // Step 2: Baaki bachi hui jagah ko zeroes se bhar do
+        for (int i = lastNonZeroFoundAt; i < nums.length; i++) {
+            nums[i] = 0;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {0, 1, 0, 3, 12};
+        moveZeroes(arr);
+        
+        System.out.print("Result: ");
+        for (int n : arr) System.out.print(n + " ");
+    }
+}
