@@ -1,0 +1,30 @@
+import java.util.HashSet;
+
+public class Main {
+    public static boolean containsNearbyDuplicate(int[] nums, int k) {
+        HashSet<Integer> window = new HashSet<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            // 1. Agar window k se badi ho gayi, toh pichla element hatao
+            if (i > k) {
+                window.remove(nums[i - k - 1]);
+            }
+
+            // 2. Agar current number pehle se window mein hai
+            if (window.contains(nums[i])) {
+                return true;
+            }
+
+            // 3. Number ko window mein add karo
+            window.add(nums[i]);
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 1};
+        int k = 3;
+        System.out.println("Contains duplicate within k? " + containsNearbyDuplicate(arr, k));
+    }
+}
