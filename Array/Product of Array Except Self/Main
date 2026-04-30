@@ -1,0 +1,28 @@
+public class Main {
+    public static int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+
+        // Step 1: Prefix products (Pehle ke numbers ka guna)
+        res[0] = 1; // 0th index se pehle kuch nahi hai
+        for (int i = 1; i < n; i++) {
+            res[i] = res[i - 1] * nums[i - 1];
+        }
+
+        // Step 2: Suffix products (Baad ke numbers ka guna)
+        int suffix = 1; // Peeche se product track karne ke liye
+        for (int i = n - 1; i >= 0; i--) {
+            res[i] = res[i] * suffix; // Prefix * Suffix
+            suffix = suffix * nums[i]; // Agle step ke liye suffix update
+        }
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4};
+        int[] result = productExceptSelf(arr);
+        
+        for (int x : result) System.out.print(x + " ");
+    }
+}
