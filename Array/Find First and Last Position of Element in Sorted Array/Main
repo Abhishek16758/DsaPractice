@@ -1,0 +1,29 @@
+public class Main {
+    public static int[] searchRange(int[] nums, int target) {
+        int[] result = {-1, -1};
+        result[0] = findBound(nums, target, true);  // First position
+        result[1] = findBound(nums, target, false); // Last position
+        return result;
+    }
+
+    private static int findBound(int[] nums, int target, boolean isFirst) {
+        int low = 0, high = nums.length - 1, index = -1;
+        
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] == target) {
+                index = mid; // Potential answer mila
+                if (isFirst) high = mid - 1; // Left mein aur dhoondo
+                else low = mid + 1;         // Right mein aur dhoondo
+            } else if (nums[mid] < target) low = mid + 1;
+            else high = mid - 1;
+        }
+        return index;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {5, 7, 7, 8, 8, 10};
+        int[] res = searchRange(nums, 8);
+        System.out.println("Range: [" + res[0] + ", " + res[1] + "]");
+    }
+}
