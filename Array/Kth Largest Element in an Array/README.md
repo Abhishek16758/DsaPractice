@@ -1,4 +1,3 @@
-Chaliye, Week 2 ka aakhri aur ek bohot hi important question solve karte hain jo Amazon aur Flipkart jaise interviews mein bohot pucha jata hai.
 
 **Question: Kth Largest Element in an Array**
 
