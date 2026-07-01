@@ -1,0 +1,26 @@
+import java.util.PriorityQueue;
+
+public class Main {
+    public static int findKthLargest(int[] nums, int k) {
+        // By default, Java ki PriorityQueue ek Min-Heap hoti hai
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+        for (int num : nums) {
+            minHeap.add(num); // Number ko heap mein daalo
+
+            // Agar size k se bada ho jaye, toh sabse chote ko hatao
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+
+        // Aakhir mein jo top par bacha hai, wahi Kth largest hai
+        return minHeap.peek();
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 1, 5, 6, 4};
+        int k = 2;
+        System.out.println("The " + k + "nd largest element is: " + findKthLargest(arr, k));
+    }
+}
